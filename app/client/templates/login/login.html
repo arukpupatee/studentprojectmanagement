@@ -1,0 +1,21 @@
+<template name="Login">
+  <div class="login">
+  	<div id="login_panel">
+  		{{#if isNotLogin}}
+  		<div id="not_login">
+  		<table>
+  			<tr><td><label>Username </label></td><td><input type="text" id="username"></td></tr>
+  			<tr><td><label>Password </label></td><td><input type="password" id="password"></td></tr>
+  		</table>
+  		<button type="button" id="login_button">Login</button><br>
+  		<label>If you never have account. </label><button type="button" id="register_button">Register</button>
+  		</div>
+  		{{else}}
+  		<div id="logged_in">
+  		<label>You're logged in as </label>{{#with getUserInfo}}<label>{{name}} {{surname}}</label>{{/with}}
+  		<button type="button" id="logout_button">Logout</button>
+  		</div>
+  		{{/if}}
+  	</div>
+  </div>
+</template>
