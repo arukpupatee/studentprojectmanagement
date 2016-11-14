@@ -5,37 +5,73 @@
     	<form class="register">
     	<table>
     		<tr>
-    			<td><label>Name</label></td>
-    			<td><input type="text" id="name" placeholder="Name" required></td>
-    			<td><input type="text" id="surname" placeholder="Surname" required></td>
+    			<td><label>ชื่อ</label></td>
+                <td>
+                    <select id="prefix">
+                        <option value="นาย">นาย</option>
+                        <option value="นางสาว">นางสาว</option>
+                        <option value="นาง">นาง</option>
+                    </select>
+                </td>
+    			<td><input type="text" id="name" placeholder="ชื่อ" required></td>
+    			<td><input type="text" id="surname" placeholder="นามสกุล" required></td>
     		</tr>
     		<tr>
-    			<td><label>Gender</label></td>
-    			<td><!--<input type="radio" name="gender" value="male" checked> Male--></td>
-    			<td><!--<input type="radio" name="gender" value="female"> Female--></td>
-    		</tr>
-    		<tr>
-    	    	<td><label>Student ID</label></td>
+    	    	<td><label>รหัสนักศึกษา</label></td>
+                <td></td>
     	    	<td><input type="text" id="student_id" placeholder="5x010xxxxxxxx" maxlength="13" required></td>
     	    	<td></td>
     		</tr>
     		<tr>
-    	    	<td><label>Phone Number</label></td>
+    	    	<td><label>รหัสผ่าน</label></td>
+                <td></td>
+    	    	<td><input type="password" id="password" required></td>
+    	    	<td></td>
+    		</tr>
+    		<!--
+    		<tr>
+    			<td>คณะ</td>
+    			<td></td>
+    			<td>
+    				<select id="faculty">
+                        <option value="วิศวกรรมศาสตร์">วิศวกรรมศาสตร์</option>
+                    </select>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>ภาควิชา</td>
+    			<td></td>
+    			<td>
+    				<select id="department">
+                        <option value="วิศวกรรมไฟฟ้าและคอมพิวเตอร์ (ECE)">วิศวกรรมไฟฟ้าและคอมพิวเตอร์ (ECE)</option>
+                    </select>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>สาขาวิชา</td>
+    			<td></td>
+    			<td>
+    				<select id="area">
+                        <option value="วิศวกรรมไฟฟ้า">วิศวกรรมไฟฟ้า (EE)</option>
+                    </select>
+    			</td>
+    		</tr>
+    		-->
+    		<tr>
+    	    	<td><label>เบอร์โทรศัพท์</label></td>
+                <td></td>
     	    	<td><input type="text" id="phone_number" placeholder="08xxxxxxxx" maxlength="10" required></td>
     	    	<td></td>
     		</tr>
     		<tr>
     	    	<td><label>Email</label></td>
+                <td></td>
     	    	<td><input type="text" id="email" placeholder="youremail@yourdomain.com" required></td>
     	    	<td></td>
     		</tr>
-    		<tr>
-    	    	<td><label>Password</label></td>
-    	    	<td><input type="password" id="password" required></td>
-    	    	<td></td>
-    		</tr>
+    		
     	</table><br>
-    	<input type="submit" id="register_button" value="Register">
+    	<input type="submit" id="register_button" value="ลงทะเบียน">
     	</form>
     </div>
   </div>

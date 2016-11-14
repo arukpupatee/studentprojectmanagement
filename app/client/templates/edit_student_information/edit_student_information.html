@@ -6,32 +6,38 @@
     	{{#each getStudentInformation}}
     	<table>
     		<tr>
-    			<td><label>Name</label></td>
-    			<td><input type="text" id="name" placeholder="Name" required value="{{name}}"></td>
-    			<td><input type="text" id="surname" placeholder="Surname" required value="{{surname}}"></td>
+    			<td><label>ชื่อ</label></td>
+                <td>
+                    <select id="prefix">
+                        <option value="นาย">นาย</option>
+                        <option value="นางสาว">นางสาว</option>
+                        <option value="นาง">นาง</option>
+                    </select>
+                </td>
+    			<td><input type="text" id="name" placeholder="ชื่อ" required value="{{name}}"></td>
+    			<td><input type="text" id="surname" placeholder="นามสกุล" required value="{{surname}}"></td>
     		</tr>
     		<tr>
-    			<td><label>Gender</label></td>
-    			<td><!--<input type="radio" name="gender" value="male" checked> Male--></td>
-    			<td><!--<input type="radio" name="gender" value="female"> Female--></td>
-    		</tr>
-    		<tr>
-    	    	<td><label>Student ID</label></td>
-    	    	<td><input type="text" id="student_id" placeholder="5x010xxxxxxxx" maxlength="13" required value="{{student_id}}"></td>
+    	    	<td><label>รหัสนักศึกษา</label></td>
+                <td></td>
+    	    	<td><input type="text" id="student_id" placeholder="5x010xxxxxxxx" maxlength="13" required value="{{student_id}}" readonly></td>
     	    	<td></td>
     		</tr>
     		<tr>
-    	    	<td><label>Phone Number</label></td>
+    	    	<td><label>เบอร์โทรศัพท์</label></td>
+                <td></td>
     	    	<td><input type="text" id="phone_number" placeholder="08xxxxxxxx" maxlength="10" required value="{{phone_number}}"></td>
     	    	<td></td>
     		</tr>
     		<tr>
     	    	<td><label>Email</label></td>
+                <td></td>
     	    	<td><input type="text" id="email" placeholder="youremail@yourdomain.com" required value="{{email}}"></td>
     	    	<td></td>
     		</tr>
     	</table><br>
-    	<button type="button" id="save_button" value="{{_id}}">Save</button>
+    	<button type="button" id="save_button" value="{{_id}}">บันทึก</button>
+        <button type="button" id="cancel_button">ยกเลิก</button>
     	{{/each}}
     	</form>
     </div>

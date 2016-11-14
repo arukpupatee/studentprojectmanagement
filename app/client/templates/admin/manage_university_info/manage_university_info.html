@@ -1,0 +1,108 @@
+<template name="ManageUniversityInfo">
+  <div class="manage-university-info">
+  	<h1>จัดการข้อมูลวิชาที่เรียนทั้งหมด</h1>
+  	<table>
+  	
+  	<tr>
+  		<th>คณะ</th>
+  		<th>ภาควิชา</th>
+  		<th>สาขาวิชา</th>
+  		<th>หลักสูตร</th>
+  	</tr>
+  	<tr>
+  		<td>
+  			<select id="faculty_select" size="8">
+  				<option selected>-- เลือกคณะ --</option>
+  				{{#each getFaculties}}
+  				<option value="{{_id}}">{{name}}</option>
+  				{{/each}}
+			</select> 
+  		</td>
+  		<td>
+  			<select id="department_select" size="8">
+  				<option selected>-- เลือกภาควิชา --</option>
+  				{{#each getDepartments}}
+  				<option value="{{_id}}">{{name}} ({{acronym}})</option>
+  				{{/each}}
+        	</select>
+  		</td>
+      	<td>
+        	<select id="field_of_study_select" size="8">
+          		<option selected>-- เลือกสาขาวิชา --</option>
+          		{{#each getFieldOfStudies}}
+          		<option value="{{_id}}">
+          		{{name}} 
+          		({{acronym}})
+          		{{#if isEP program}} แผนการเรียนสองภาษา (EP){{/if}}
+          		{{#if branch}} - {{branch}} ({{branch_acronym}}){{/if}}
+          		</option>
+         		{{/each}}
+        	</select>
+      	</td>
+      	<td>
+        	<select id="study_course_select" size="8">
+          		<option selected>-- เลือกหลักสูตร --</option>
+          		{{#each getStudyCourses}}
+          		<option value="{{_id}}">หลักสูตรปี {{year}} ระดับ{{degree}}</option>
+         		{{/each}}
+        	</select>
+      	</td>
+  	</tr>
+  	<tr>
+  		<td>เพิ่มคณะ</td>
+  		<td>เพิ่มภาควิชา</td>
+  		<td>เพิ่มสาขาวิชา</td>
+  		<td>เพิ่มหลักสูตร</td>
+  	</tr>
+  	<tr>
+  		<td> <!-- Add Faculty -->
+    		<input type="text" id="faculty_input" placeholder="คณะ (ภาษาไทย)"><br>
+    		<input type="text" id="faculty_english_input" placeholder="คณะ (ภาษาอังกฤษ)">
+    	</td>
+    	<td> <!-- Add Department -->
+    		<input type="text" id="department_input" placeholder="ภาควิชา (ภาษาไทย)"><br>
+    		<input type="text" id="department_english_input" placeholder="ภาควิชา (ภาษาอังกฤษ)">
+    		<input type="text" id="department_acronym_input" placeholder="อักษรย่อภาควิชา">
+    	</td>
+    	<td> <!-- Add Field of Study -->
+    		<input type="text" id="field_of_study_input" placeholder="สาขาวิชา"><br>
+    		<input type="text" id="field_of_study_english_input" placeholder="สาขาวิชา (ภาษาอังกฤษ)">
+    		<select id="program_select"><option selected>แผนการเรียนทั่วไป</option><option>แผนการเรียนสองภาษา (EP)</option></select><br>
+    		<input type="text" id="field_of_study_acronym_input" placeholder="อักษรย่อสาขาวิชา"><br>
+    		<input type="text" id="branch_input" placeholder="แขนง (ว่างไว้ หากไม่มี)">
+    		<input type="text" id="branch_acronym_input" placeholder="อักษรย่อแขนง (ว่างไว้ หากไม่มี)">
+    	</td>
+    	<td> <!-- Add Course -->
+    		<input type="text" id="course_year_input" placeholder="ปีที่ปรับปรุงหลักสูตร"><br>
+    		<select id="course_degree_select">
+    			<option selected>ปริญญาตรี (Bachelor's Degree)</option>
+    			<option>ปริญญาโท (Bachelor's Degree)</option>
+    			<option>ปริญญาเอก (Doctoral Degree)</option>
+    		</select>
+    	</td>
+    </tr>
+    <tr>
+    	<td><button type="button" id="add_faculty_button">เพิ่มคณะ</button></td>
+    	<td><button type="button" id="add_department_button">เพิ่มภาควิชา</button></td>
+    	<td><button type="button" id="add_field_of_study_button">เพิ่มสาขาวิชา</button></td>
+    	<td><button type="button" id="add_study_course_button">เพิ่มหลักสูตร</button></td>
+    </tr>
+    </table>
+
+    <h2>เพิ่มวิชาเรียน</h2>
+    <h3>เพิ่มวิชาเรียนลงใน
+    {{#each getSelectingStudyCourse}}
+    หลักสูตร{{#each getSelectingFieldOfStudy}}สาขาวิชา{{name}} ({{acronym}}){{#if isEP program}} แผนการเรียนสองภาษา (EP){{/if}}{{#if branch}} - {{branch}} ({{branch_acronym}}){{/if}}{{/each}} 
+    ปรับปรุงปี {{year}} ระดับ{{degree}}
+    {{else}}
+     --กรุณาเลือกหลักสูตร--
+    {{/each}}
+    </h3>
+
+    <br><br>
+    <h3>เพิ่มวิชาเรียนใหม่</h3>
+
+    <button type="button" id="add_study_subject_button">เพิ่มวิชาเรียน</button>
+    <!--<button type="button" id="add_study_section_button">เพิ่มตอนเรียน</button>-->
+  </div>
+</template>

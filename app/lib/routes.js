@@ -36,3 +36,8 @@ Router.route('login', {
   controller: 'LoginController',
   where: 'client'
 });
+
+Router.route('admin/manage_university_info', {
+  name: 'manageUniversityInfo',
+  where: 'client'
+});

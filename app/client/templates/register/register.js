@@ -4,39 +4,28 @@
 Template.Register.events({
 	'submit form': function(event){
 		event.preventDefault();
-		console.log($('#name').val(),
-                    $('#surname').val(),
-                    /*gender.val(),*/
-                    $('#student_id').val(),
-                    $('#phone_number').val(),
-                    $('#email').val(),
-                    $('#password').val(),
-                    );
-        var user_data ={
-                'username': $('#student_id').val(),
-                'password': $('#password').val(),
-        };
-
-        
-
-        UsersInformation.insert(user_data);
-        user_id = UsersInformation.findOne(user_data)._id;
-
-		var profile_data ={
+        var profile_data ={
+                'prefix': $('#prefix').val(),
                 'name': $('#name').val(),
                 'surname': $('#surname').val(),
-                /*'gender': gender.val(),*/
                 'student_id': $('#student_id').val(),
                 'phone_number': $('#phone_number').val(),
                 'email': $('#email').val(),
-                'userID': user_id,
         };
         StudentInformation.insert(profile_data);
         student_information_id = StudentInformation.findOne(profile_data)._id;
 
-        UsersInformation.update(user_id,{$set:{'studentInformationID':student_information_id}});
+        user_data = {
+                username: $('#student_id').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
+                profile: {
+                    "studentInformationID":student_information_id,
+                },
+        };
 
-        console.log("Finish Regis");
+        Accounts.createUser(user_data);
+        Router.go('/');
 	},
 });
 

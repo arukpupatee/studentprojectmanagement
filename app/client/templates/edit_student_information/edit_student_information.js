@@ -7,19 +7,21 @@ Template.EditStudentInformation.events({
 		event.preventDefault();
 		var _id = event.target.value;
 		var data ={
+                'prefix': $('#prefix').val(),
                 'name': $('#name').val(),
                 'surname': $('#surname').val(),
-                /*'gender': gender.val(),*/
                 'student_id': $('#student_id').val(),
                 'phone_number': $('#phone_number').val(),
                 'email': $('#email').val(),
         };
-        console.log(_id);
-        console.log(data);
         StudentInformation.update(_id,{$set:data});
-        UsersInformation.update({"studentInforamtionID":_id},{$set:{"username":$('#student_id').val()}});
         Router.go('/show_student_information/');
 	},
+    'click #cancel_button': function(event)
+    {
+        event.preventDefault();
+        Router.go('/show_student_information/');
+    },
 });
 
 /*****************************************************************************/

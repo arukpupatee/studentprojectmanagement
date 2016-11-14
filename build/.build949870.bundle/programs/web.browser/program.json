@@ -1,0 +1,38 @@
+{
+  "format": "web-program-pre1",
+  "manifest": [
+    {
+      "path": "57c40b68eaf0ce47debe2101698f9c14c3a91e6d.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/57c40b68eaf0ce47debe2101698f9c14c3a91e6d.js?meteor_js_resource=true",
+      "size": 628043,
+      "hash": "57c40b68eaf0ce47debe2101698f9c14c3a91e6d"
+    },
+    {
+      "path": "8c7d44052754b5c60c1fa2ef1c6acdd2ed62db72.css",
+      "where": "client",
+      "type": "css",
+      "cacheable": true,
+      "url": "/8c7d44052754b5c60c1fa2ef1c6acdd2ed62db72.css?meteor_css_resource=true",
+      "size": 7402,
+      "hash": "8c7d44052754b5c60c1fa2ef1c6acdd2ed62db72"
+    },
+    {
+      "path": "app/.gitkeep",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/.gitkeep",
+      "size": 1,
+      "hash": "adc83b19e793491b1c6ea0fd8b46cd9f32e592fc"
+    },
+    {
+      "path": "head.html",
+      "where": "internal",
+      "type": "head",
+      "hash": "859a1a5e5b9dcf110b163d13432ddcb89475a4f1"
+    }
+  ]
+}

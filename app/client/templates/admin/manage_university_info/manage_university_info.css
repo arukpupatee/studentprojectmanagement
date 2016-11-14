@@ -1,5 +1,11 @@
 /*****************************************************************************/
-/* AddStudentInformation: Style */
+/* ManageUniversityInfo: Style */
 /*****************************************************************************/
-.add-student-information {
+.manage-university-info {
+}
+table {
+	border-collapse: collapse;
+}
+table , th , td {
+	border: 1px solid black;
 }

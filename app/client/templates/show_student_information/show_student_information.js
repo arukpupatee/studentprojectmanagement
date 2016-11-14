@@ -5,14 +5,14 @@ Template.ShowStudentInformation.events({
 	'click #delete_button': function(event)
 	{
 		event.preventDefault();
-		var _id = event.target.value;
+		var s_id = event.target.value;
+        var _id = s_id;
 		var student = StudentInformation.findOne({_id});
-        var users_information_id = student.userID;
-		console.log("Remove "+student.name+" "+student.surname+" "+student.student_id+" "+student.phone_number+" "+student.email);
-		console.log("delete "+_id);
-		StudentInformation.remove(_id);
-        UsersInformation.remove(users_information_id);
-
+        var u_id = Meteor.users.findOne({"username":student.student_id})._id;
+        _id = u_id;
+        Meteor.call('server/users/delete_user',u_id);
+        _id = s_id;
+        StudentInformation.remove(_id);
 	},
 	'click #edit_button': function(event) 
     {
